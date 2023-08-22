@@ -76,12 +76,12 @@ function GitSearch() {
 
   const profilePicStyle = {
     alignSelf: "center",
-    width: "20%",
+    width: "40%",
   };
 
   // Add a media query for screens with a minimum width of 640px
   if (window.matchMedia("(min-width: 640px)").matches) {
-    parentDivStyle.flexDirection = "column";
+    parentDivStyle.flexDirection = "row";
     parentDivStyle.width = "80%";
     parentDivStyle.marginLeft = "10%";
   }
@@ -95,7 +95,6 @@ function GitSearch() {
         backgroundRepeat: "no-repeat",
         backgroundPosition: "static",
         height: "100vh",
-        marginBottom: "3%",
       }}
     >
       <div className="flex justify-center ">
@@ -166,7 +165,7 @@ function GitSearch() {
 
       {GitSearch && (
         <div
-          className="bg-orange-400 p-5 flex mt-10 ml-80 mr-80 rounded-3xl"
+          className="bg-orange-400 p-5 flex mt-20 ml-80 mr-80 rounded-3xl"
           style={parentDivStyle}
         >
           <img
@@ -175,11 +174,13 @@ function GitSearch() {
             alt="profile"
             src={GitSearch.avatar_url}
           />
-          <div className="text-center p-5">
+          <div className=" p-5 mt-3">
             <h1 className="text-4xl font-semibold">{GitSearch.name}</h1>
             <br />
             <p className="text-base">{GitSearch.bio}</p> <br />
-            <p className="text-base items-center">{GitSearch.location}</p>{" "}
+            <p className="text-base flex items-center">
+              {GitSearch.location}
+            </p>{" "}
             <br />
             <p className="text-base">
               Repos: {GitSearch.public_repos} &nbsp;&nbsp;&nbsp;&nbsp;
